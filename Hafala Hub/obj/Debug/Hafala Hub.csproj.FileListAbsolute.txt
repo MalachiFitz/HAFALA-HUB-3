@@ -52,3 +52,23 @@ C:\Users\Yoni\Desktop\HAFALA-HUB-2-master\Hafala Hub\bin\Debug\Hafala Hub.pdb
 C:\Users\Yoni\Desktop\HAFALA-HUB-2-master\Hafala Hub\bin\Debug\ContactList1.mdf
 C:\Users\Yoni\Desktop\HAFALA-HUB-2-master\Hafala Hub\bin\Debug\ContactList1_log.ldf
 C:\Users\Yoni\Desktop\HAFALA-HUB-2-master\Hafala Hub\obj\Debug\Hafala_Hub.Sched_n__List.resources
+C:\Users\Yoni\Desktop\Hub\HAFALA-HUB-3\Hafala Hub\bin\Debug\ContactList1.mdf
+C:\Users\Yoni\Desktop\Hub\HAFALA-HUB-3\Hafala Hub\bin\Debug\ContactList1_log.ldf
+C:\Users\Yoni\Desktop\Hub\HAFALA-HUB-3\Hafala Hub\bin\Debug\Hafala Hub.exe.config
+C:\Users\Yoni\Desktop\Hub\HAFALA-HUB-3\Hafala Hub\bin\Debug\Hafala Hub.exe
+C:\Users\Yoni\Desktop\Hub\HAFALA-HUB-3\Hafala Hub\bin\Debug\Hafala Hub.pdb
+C:\Users\Yoni\Desktop\Hub\HAFALA-HUB-3\Hafala Hub\obj\Debug\Hafala Hub.csprojResolveAssemblyReference.cache
+C:\Users\Yoni\Desktop\Hub\HAFALA-HUB-3\Hafala Hub\obj\Debug\Hafala_Hub.Alert_Display.resources
+C:\Users\Yoni\Desktop\Hub\HAFALA-HUB-3\Hafala Hub\obj\Debug\Hafala_Hub.HafalaHub.resources
+C:\Users\Yoni\Desktop\Hub\HAFALA-HUB-3\Hafala Hub\obj\Debug\Hafala_Hub.New_Alert.resources
+C:\Users\Yoni\Desktop\Hub\HAFALA-HUB-3\Hafala Hub\obj\Debug\Hafala_Hub.Page_AlertsArchive.resources
+C:\Users\Yoni\Desktop\Hub\HAFALA-HUB-3\Hafala Hub\obj\Debug\Hafala_Hub.Page_Contactlist.resources
+C:\Users\Yoni\Desktop\Hub\HAFALA-HUB-3\Hafala Hub\obj\Debug\Hafala_Hub.Page_FSAuto.resources
+C:\Users\Yoni\Desktop\Hub\HAFALA-HUB-3\Hafala Hub\obj\Debug\Hafala_Hub.Page_Menu.resources
+C:\Users\Yoni\Desktop\Hub\HAFALA-HUB-3\Hafala Hub\obj\Debug\Hafala_Hub.Page_Tools.resources
+C:\Users\Yoni\Desktop\Hub\HAFALA-HUB-3\Hafala Hub\obj\Debug\Hafala_Hub.Properties.Resources.resources
+C:\Users\Yoni\Desktop\Hub\HAFALA-HUB-3\Hafala Hub\obj\Debug\Hafala_Hub.Sched_n__List.resources
+C:\Users\Yoni\Desktop\Hub\HAFALA-HUB-3\Hafala Hub\obj\Debug\Hafala Hub.csproj.GenerateResource.Cache
+C:\Users\Yoni\Desktop\Hub\HAFALA-HUB-3\Hafala Hub\obj\Debug\Hafala Hub.csproj.CoreCompileInputs.cache
+C:\Users\Yoni\Desktop\Hub\HAFALA-HUB-3\Hafala Hub\obj\Debug\Hafala Hub.exe
+C:\Users\Yoni\Desktop\Hub\HAFALA-HUB-3\Hafala Hub\obj\Debug\Hafala Hub.pdb
