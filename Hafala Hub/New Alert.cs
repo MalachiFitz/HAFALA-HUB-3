@@ -13,10 +13,12 @@ namespace Hafala_Hub
 {
     public partial class New_Alert : Form
     {
+        Point lastClick;
         public New_Alert()
         {
             InitializeComponent();
         }
+
 
         private string AGTEXT = "Paste the alert group from the Panorama.";
         private string DESCTEXT = "Describe the alert so other operators will now what is the alert meaning...";
@@ -44,7 +46,7 @@ namespace Hafala_Hub
                 if (result == DialogResult.No)
                     return;
                 String AlertGroup = AlertGroupTextbox.Text;
-                String DirectoryPath = @"C:\DB";
+                String DirectoryPath = @"E:\DB";
                 String Path = DirectoryPath + @"\" + AlertGroup + ".txt";
                 String text = "Alert Description:" + "\r\n" + DescriptionTextbox.Text + "\r\n" + "\r\n" + "\r\n" + "\r\n" + "\r\n" + "Suggested Solution: " + "\r\n" + SolutionsTextbox.Text;
 
@@ -61,12 +63,14 @@ namespace Hafala_Hub
             this.Close();
         }
         
-        Point lastClick;
+
         private void New_Alert_MouseDown(object sender, MouseEventArgs e)
         {
             lastClick = e.Location;
         }
 
+        // ----------------------------------------------------------------------------------------------------------
+        // Form movement functions:
         private void New_Alert_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -75,5 +79,108 @@ namespace Hafala_Hub
                 this.Top += e.Y - lastClick.Y;
             }
         }
-    } 
+        private void AlertGroupLabel_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastClick = e.Location;
+        }
+        private void AlertGroupLabel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastClick.X;
+                this.Top += e.Y - lastClick.Y;
+            }
+        }
+        private void DescriptionLabel_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastClick = e.Location;
+        }
+
+        private void DescriptionLabel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastClick.X;
+                this.Top += e.Y - lastClick.Y;
+            }
+        }
+        private void SolutionLable_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastClick = e.Location;
+        }
+
+        private void SolutionLable_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastClick.X;
+                this.Top += e.Y - lastClick.Y;
+            }
+        }
+        // ----------------------------------------------------------------------------------------------------------
+
+
+        // ----------------------------------------------------------------------------------------------------------
+        // Focus features on alert group textbox:
+        private void AlertGroupTextbox_Enter(object sender, EventArgs e)
+        {
+            if (AlertGroupTextbox.Text == AGTEXT)
+            {
+                AlertGroupTextbox.Text = "";
+                AlertGroupTextbox.ForeColor = Color.Black;
+            }
+        }
+
+        private void AlertGroupTextbox_Leave(object sender, EventArgs e)
+        {
+            if (AlertGroupTextbox.Text == "")
+            {
+                AlertGroupTextbox.Text = AGTEXT;
+                AlertGroupTextbox.ForeColor = Color.DimGray;
+            }
+        }
+        // ----------------------------------------------------------------------------------------------------------
+
+        // ----------------------------------------------------------------------------------------------------------
+        // Focus features on description textbox:
+        private void DescriptionTextbox_Enter(object sender, EventArgs e)
+        {
+            if (DescriptionTextbox.Text == DESCTEXT)
+            {
+                DescriptionTextbox.Text = "";
+                DescriptionTextbox.ForeColor = Color.Black;
+            }
+        }
+
+        private void DescriptionTextbox_Leave(object sender, EventArgs e)
+        {
+            if (DescriptionTextbox.Text == "")
+            {
+                DescriptionTextbox.Text = DESCTEXT;
+                DescriptionTextbox.ForeColor = Color.DimGray;
+            }
+        }
+        // ----------------------------------------------------------------------------------------------------------
+
+        // ----------------------------------------------------------------------------------------------------------
+        // Focus features on solutions textbox:
+        private void SolutionsTextbox_Enter(object sender, EventArgs e)
+        {
+            if (SolutionsTextbox.Text == SLNTEXT)
+            {
+                SolutionsTextbox.Text = "";
+                SolutionsTextbox.ForeColor = Color.Black;
+            }
+        }
+
+        private void SolutionsTextbox_Leave(object sender, EventArgs e)
+        {
+            if (SolutionsTextbox.Text == "")
+            {
+                SolutionsTextbox.Text = SLNTEXT;
+                SolutionsTextbox.ForeColor = Color.DimGray;
+            }
+        }
+        // ----------------------------------------------------------------------------------------------------------
+    }
 }

@@ -292,6 +292,7 @@
             // 
             // page_Contactlist1
             // 
+            this.page_Contactlist1.ForeColor = System.Drawing.Color.DodgerBlue;
             this.page_Contactlist1.Location = new System.Drawing.Point(314, 42);
             this.page_Contactlist1.Name = "page_Contactlist1";
             this.page_Contactlist1.Size = new System.Drawing.Size(782, 583);
@@ -323,8 +324,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HafalaHub";
             this.Text = "Hafala Hub";
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.HafalaHub_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.HafalaHub_MouseMove);
             this.UpperPanel.ResumeLayout(false);
             this.UpperPanel.PerformLayout();
             this.LeftPanel.ResumeLayout(false);

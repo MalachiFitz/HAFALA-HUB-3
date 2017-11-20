@@ -35,21 +35,20 @@ namespace Hafala_Hub
             textBox1.ReadOnly = false;
             EditButton1.Text = "Save";
             DialogResult result;
-
             if (clickCounter > 1)
             {
                 result = MessageBox.Show("Are you sure you want to save your changes?", "Save alert", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
-               if (result == DialogResult.OK)
-                { 
+            if (result == DialogResult.OK)
+            {
                 File.WriteAllText(Page_AlertsArchive.passingPath, textBox1.Text);
-                    this.Close();
-                }
-               else
-                {
-                    return;
-                }
+                this.Close();
             }
-           
+            else
+            {
+                return;
+            }
+            }
+
         }
         
         private void Alert_Display_Load(object sender, EventArgs e)

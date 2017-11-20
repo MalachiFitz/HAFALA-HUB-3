@@ -13,18 +13,23 @@ namespace Hafala_Hub
 {
     public partial class HafalaHub : Form
     {
+        // Variables definitions:
         Point lastClick;
+        public static string DirectoryPath = @"E:\DB\";
+
+        // Initializing application:
         public HafalaHub()
         {
             InitializeComponent();
         }
 
-        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        // 2 Functions that enable form movement by mouse interaction.
+        private void HafalaHub_MouseDown(object sender, MouseEventArgs e)
         {
             lastClick = e.Location;
         }
 
-        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        private void HafalaHub_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -33,6 +38,7 @@ namespace Hafala_Hub
             }
         }
 
+        // 2 Functions that enable form movement by mouse interaction.
         private void UpperPanel_MouseDown(object sender, MouseEventArgs e)
         {
             lastClick = e.Location;
@@ -47,11 +53,13 @@ namespace Hafala_Hub
             }
         }
 
+        // Upper X buttun exit function:
         private void UpperExitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        // 2 Functions that enable form movement by mouse interaction.
         private void LeftPanel_MouseDown(object sender, MouseEventArgs e)
         {
             lastClick = e.Location;
@@ -66,6 +74,7 @@ namespace Hafala_Hub
             }
         }
         
+        // Menu button tab properties changes.
         private void MenuButton_CheckedChanged(object sender, EventArgs e)
         {
             MenuButton.ForeColor = Color.DodgerBlue;
@@ -77,6 +86,7 @@ namespace Hafala_Hub
             page_Menu1.BringToFront();
         }
 
+        // Alerts archive button tab properties changes.
         private void AlertsArchiveButton_CheckedChanged(object sender, EventArgs e)
         {
             AlertsArchiveButton.ForeColor = Color.DodgerBlue;
@@ -88,6 +98,7 @@ namespace Hafala_Hub
             page_AlertsArchive1.BringToFront();
         }
 
+        // Filesystems automation button tab properties changes.
         private void FSAutoButton_CheckedChanged(object sender, EventArgs e)
         {
             FSAutoButton.ForeColor = Color.DodgerBlue;
@@ -99,6 +110,7 @@ namespace Hafala_Hub
             page_FSAuto1.BringToFront();
         }
 
+        // Contact list button tab properties changes.
         private void ContactListButton_CheckedChanged(object sender, EventArgs e)
         {
             ContactListButton.ForeColor = Color.DodgerBlue;
@@ -110,6 +122,7 @@ namespace Hafala_Hub
             page_Contactlist1.BringToFront();
         }
 
+        // Tools button tab properties changes.
         private void ToolsButton_CheckedChanged(object sender, EventArgs e)
         {
             ContactListButton.ForeColor = Color.DimGray;
@@ -121,6 +134,7 @@ namespace Hafala_Hub
             page_Tools1.BringToFront();
         }
 
+        // Menu button tab properties changes & exit function.
         private void ExitButton_CheckedChanged(object sender, EventArgs e)
         {
             ContactListButton.ForeColor = Color.DimGray;
@@ -132,11 +146,13 @@ namespace Hafala_Hub
             Application.Exit();
         }
 
+        // Upper _ buttun minimize function:
         private void UpperMinimizeButton_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
+        // 2 Functions that enable form movement by mouse interaction.
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -151,6 +167,7 @@ namespace Hafala_Hub
             lastClick = e.Location;
         }
 
+        // 2 Functions that enable form movement by mouse interaction.
         private void label1_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)

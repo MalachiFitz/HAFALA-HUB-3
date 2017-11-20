@@ -13,74 +13,110 @@ namespace Hafala_Hub
 {
     public partial class Page_AlertsArchive : UserControl
     {
-        Point lastClick;
+        // Variables definitions:
         public static string passingText;
         public static string passingAlertGroup;
         public static string passingPath;
+        private static string[] names = Directory.GetFiles(HafalaHub.DirectoryPath, "*.txt");
+        Point lastclick;
+
+        // Initializing Alerts archive page:
         public Page_AlertsArchive()
         {
             InitializeComponent();
         }
-        private static string DirectoryPath = @"C:\DB";
-        private static string[] names = Directory.GetFiles(DirectoryPath, "*.txt");
-        private void button1_Click(object sender, EventArgs e)
+
+        // Shows the "New Alert" form:
+        private void AddButton_Click(object sender, EventArgs e)
         {
             New_Alert NewAlert = new New_Alert();
             NewAlert.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        // Shows the "New Alert" form:
+        private void AddFileImageButton_Click(object sender, EventArgs e)
+        {
+            New_Alert NewAlert = new New_Alert();
+            NewAlert.Show();
+        }
+
+        // Shows the "ReadEditPanel" panel:
+        private void ReadEditButton_Click(object sender, EventArgs e)
         {  
             foreach (string name in names)
             {
                 AlertGroupList.Items.Add(Path.GetFileNameWithoutExtension(name));
             }
-            panel1.Show();
+            ReadEditPanel.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        // Shows the "ReadEditPanel" panel:
+        private void SearchOrEditImageButton_Click(object sender, EventArgs e)
         {
+            foreach (string name in names)
+            {
+                AlertGroupList.Items.Add(Path.GetFileNameWithoutExtension(name));
+            }
+            ReadEditPanel.Show();
+        }
+
+        // Search button clicked events:
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            bool flag = File.Exists(HafalaHub.DirectoryPath + SearchTxtBox.Text + ".txt"); // A boolean value that indicates if the desired file exists.
             
-            string desired = SearchTxtBox.Text;
-            bool flag = File.Exists(DirectoryPath + @"\" +desired +".txt");
+            // If the file exists then it's opening the alert display form and if not it's showing host an error messege:
             if (flag)
             {
-                string AlertText = File.ReadAllText(DirectoryPath + @"\" +SearchTxtBox.Text + ".txt");
+                string AlertText = File.ReadAllText(HafalaHub.DirectoryPath + SearchTxtBox.Text + ".txt");
                 passingText = AlertText;
                 passingAlertGroup = SearchTxtBox.Text;
-                passingPath = DirectoryPath + @"\" + SearchTxtBox.Text + ".txt";
+                passingPath = HafalaHub.DirectoryPath + SearchTxtBox.Text + ".txt";
                 Alert_Display alert_Display = new Alert_Display();
                 alert_Display.Show();
             }
             else
             {
-                MessageBox.Show("The alertgroup you have inserted is either wrong or doesn't exist yet in the archive."
-                    , "oops", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                if (SearchTxtBox.Text == "")
+                {
+                    MessageBox.Show("Plese insert an alert group identifier!"
+                      , "oops", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    MessageBox.Show("The alertgroup you have inserted is either wrong or doesn't exist yet in the archive."
+                      , "oops", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
             }
+            // ----------------------------------------------------------------------------------------------------------
         }
-        public string FileName;
-        private void button4_Click(object sender, EventArgs e)
+
+        // Open button clicked events:
+        private void OpenFileButton_Click(object sender, EventArgs e)
         {
             if (AlertGroupList.SelectedItem == null)
             {
                 return;
             }
             string curAlertGroup =AlertGroupList.SelectedItem.ToString();
-            string AlertText = File.ReadAllText(DirectoryPath + @"\" + curAlertGroup + ".txt");
-            passingText = AlertText;
+            passingText = File.ReadAllText(HafalaHub.DirectoryPath + curAlertGroup + ".txt");
             passingAlertGroup = curAlertGroup;
-            passingPath = DirectoryPath + @"\"+ curAlertGroup + ".txt";
+            passingPath = HafalaHub.DirectoryPath + curAlertGroup + ".txt";
             Alert_Display alert_Display = new Alert_Display();
             alert_Display.Show();
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        // Back button clicked events:
+        private void BackButton1_Click(object sender, EventArgs e)
         {
             AlertGroupList.Items.Clear();
-            panel1.Visible = false;
+            ReadEditPanel.Visible = false;
         }
 
+        // ----------------------------------------------------------------------------------------------------------
+        // Buttons UI design functions.
         private void ReadEditButton_MouseMove(object sender, MouseEventArgs e)
         {
             ReadEditButton.ForeColor = Color.DodgerBlue;
@@ -110,22 +146,7 @@ namespace Hafala_Hub
         {
             AddButton.ForeColor = Color.DimGray;
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            New_Alert NewAlert = new New_Alert();
-            NewAlert.Show();
-        }
-
-        private void SearchOrEditImageButton_Click(object sender, EventArgs e)
-        {
-            foreach (string name in names)
-            {
-                AlertGroupList.Items.Add(Path.GetFileNameWithoutExtension(name));
-            }
-            panel1.Show();
-        }
-
+        
         private void SearchOrEditImageButton_MouseMove(object sender, MouseEventArgs e)
         {
             ReadEditButton.ForeColor = Color.DodgerBlue;
@@ -158,10 +179,53 @@ namespace Hafala_Hub
             AddButton.ForeColor = Color.DodgerBlue;
 
         }
+        // ----------------------------------------------------------------------------------------------------------
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+
+        // ----------------------------------------------------------------------------------------------------------
+        // User control mouse move causes full form movement:
+        private void Page_AlertsArchive_MouseDown(object sender, MouseEventArgs e)
         {
-
+            lastclick = e.Location;
         }
+
+        private void Page_AlertsArchive_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                HafalaHub.ActiveForm.Left += e.X - lastclick.X;
+                HafalaHub.ActiveForm.Top += e.Y - lastclick.Y;
+            }
+        }
+
+        private void label1_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastclick = e.Location;
+        }
+
+        private void label1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                HafalaHub.ActiveForm.Left += e.X - lastclick.X;
+                HafalaHub.ActiveForm.Top += e.Y - lastclick.Y;
+            }
+        }
+
+        private void ReadEditPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastclick = e.Location;
+        }
+
+        private void ReadEditPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                HafalaHub.ActiveForm.Left += e.X - lastclick.X;
+                HafalaHub.ActiveForm.Top += e.Y - lastclick.Y;
+            }
+        }
+        // ----------------------------------------------------------------------------------------------------------
+
     }
 }
